@@ -170,7 +170,7 @@ class Kohana_Cache_Memcached extends Cache {
 		$sanitize_ids = array();
 		// Get the value from Memcache
 		foreach($id_array as &$id){
-			$id = $this->_sanitize_id($id);
+			$sanitize_ids = $this->_sanitize_id($id);
 		}
 		$value = $this->_memcached->getMulti($sanitize_ids);
 
@@ -267,7 +267,7 @@ class Kohana_Cache_Memcached extends Cache {
 		}
 
 		// Set the data to memcache
-		return $this->_memcached->setMulti($stopre, $lifetime);
+		return $this->_memcached->setMulti($store, $lifetime);
 	}
 
 	/**
